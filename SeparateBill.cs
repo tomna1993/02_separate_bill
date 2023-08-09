@@ -6,23 +6,23 @@ namespace SeparateBill
 {
     static class Constant
     {
-        public const Int32 EXIT_SUCCESS = 1;
-        public const Int32 EXIT_FAILURE = -1;
+        public const int EXIT_SUCCESS = 1;
+        public const int EXIT_FAILURE = -1;
     }
 
     class SeparateBill
     {
-        static Int32 Main()
+        static int Main()
         {
-            Double bill = GetValueFromUser("Bill before tax and tip: ");
+            double bill = GetValueFromUser("Bill before tax and tip: ");
 
             if (bill == Constant.EXIT_FAILURE) { return Constant.EXIT_FAILURE; }
 
-            Double taxPercent = GetValueFromUser("Sale tax percent: ");
+            double taxPercent = GetValueFromUser("Sale tax percent: ");
 
             if (taxPercent == Constant.EXIT_FAILURE) { return Constant.EXIT_FAILURE; }
 
-            Double tipPercent = GetValueFromUser("Tip percent: ");
+            double tipPercent = GetValueFromUser("Tip percent: ");
             
             if (tipPercent == Constant.EXIT_FAILURE) { return Constant.EXIT_FAILURE; }
 
@@ -31,10 +31,10 @@ namespace SeparateBill
             return Constant.EXIT_SUCCESS;       
         }
 
-        static Double GetValueFromUser(string message)
+        static double GetValueFromUser(string message)
         {
-            Double value = 0.0d;
-            Int32 tryes = 10;
+            double value = 0.0d;
+            int tryes = 10;
 
             do
             {
@@ -58,11 +58,11 @@ namespace SeparateBill
             return value;
         }
 
-        static Double SeparateBillBetweenPersons(Double bill, Double taxPercent, Double tipPercent, Int32 numberOfPersons) 
+        static double SeparateBillBetweenPersons(double bill, double taxPercent, double tipPercent, int numberOfPersons) 
         {
-            bill += bill * (taxPercent / 100.0d);
+            bill += bill * (taxPercent / 100.0f);
 
-            bill += bill * (tipPercent / 100.0d);
+            bill += bill * (tipPercent / 100.0f);
 
             return bill / numberOfPersons;
         } 
