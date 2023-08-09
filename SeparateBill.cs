@@ -26,7 +26,7 @@ namespace SeparateBill
             
             if (tipPercent == Constant.EXIT_FAILURE) { return Constant.EXIT_FAILURE; }
 
-
+            Console.WriteLine($"You will owe ${SeparateBillBetweenPersons(bill, taxPercent, tipPercent, 2):F2} each!");
 
             return Constant.EXIT_SUCCESS;       
         }
@@ -57,5 +57,14 @@ namespace SeparateBill
 
             return value;
         }
+
+        static Double SeparateBillBetweenPersons(Double bill, Double taxPercent, Double tipPercent, Int32 numberOfPersons) 
+        {
+            bill += bill * (taxPercent / 100.0d);
+
+            bill += bill * (tipPercent / 100.0d);
+
+            return bill / numberOfPersons;
+        } 
     }
 }
